@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto.v1.user;
+
+import "proto/validate/validate.proto";
+option go_package = "golang_CRUD/proto/v1/reaction";
+
+service UserService {
+
+  // SignUp 회원가입
+  rpc SignUp (UserInfo) returns (UserInfoResponse);
+}
+
+message UserInfo {
+  string id = 1;
+  string name = 2;
+  string address = 3;
+  int64 number_of_children = 4;
+  int64 age_of_girl = 5;
+  int64 age_of_boy = 6;
+}
+
+message UserInfoResponse {
+  string result_code = 1;
+  string result_msg = 2;
+  UserInfo data = 3;
+}
